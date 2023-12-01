@@ -1,15 +1,11 @@
-name: Basic validation
-
-on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**.md'
-  pull_request:
-    paths-ignore:
-      - '**.md'
+name: black-action
+on: [push, pull_request]
 jobs:
-  call-basic-validation:
-    name: Basic validation
-    uses: actions/reusable-workflows/.github/workflows/basic-validation.yml@main
+  linter_name:
+    name: runner / black formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: datadog/action-py-black-formatter@v2.1
+        with:
+          check_mode: "true"
