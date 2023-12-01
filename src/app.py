@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index() :
-"""Module providing a function printing python version."""    
+ 
  
     return "Hello World"
 if __name__=="__main__":
